@@ -1,0 +1,142 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #090c10;
+    transition: 0.3s;
+}
+
+/* SWITCH */
+.switch {
+    position: absolute;
+    top: 30px;
+    width: 180px;
+    height: 60px;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    backdrop-filter: blur(15px);
+    background: rgba(255,255,255,0.08);
+}
+
+.slider {
+    position: absolute;
+    width: 80px;
+    height: 45px;
+    border-radius: 20px;
+    left: 5px;
+    background: linear-gradient(135deg, #00ffc8, #00ff88);
+    transition: 0.3s;
+    z-index: 1;
+}
+
+.switch.dark .slider {
+    left: 95px;
+}
+
+/* SVG */
+.btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.btn svg {
+    width: 24px;
+    height: 24px;
+    stroke: rgb(64, 64, 64);
+    stroke-width: 2;
+    fill: none;
+}
+
+/* CARD */
+.card {
+    width: 400px;
+    padding: 50px;
+    border-radius: 30px;
+
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+
+    box-shadow: 0 0 45px rgba(1, 189, 149, 0.2);
+
+    text-align: center;
+    color: #fff;
+}
+
+/* LIGHT MODE */
+body.light {
+    background: #e5e7eb;
+}
+
+body.light .card {
+    color: #000;
+    background: rgba(255,255,255,0.6);
+}
+
+/* INPUT */
+.input-group {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px 5px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #aaa;
+    outline: none;
+    color: inherit;
+}
+
+.input-group label {
+    position: absolute;
+    left: 5px;
+    top: 10px;
+    color: #aaa;
+    transition: 0.3s;
+}
+
+.input-group input:focus + label,
+.input-group input:valid + label {
+    top: -10px;
+    font-size: 12px;
+    color: #00ffc8;
+}
+
+/* BOTÃO */
+button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 20px;
+    background: linear-gradient(90deg, #00ffc8, #00ff88);
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+/* OUTPUT */
+#div_output {
+    margin-top: 20px;
+    display: none;
+    text-align: left;
+}

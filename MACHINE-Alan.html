@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASCII Machine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- SWITCH -->
+    <div class="switch" id="switch">
+        <div class="slider"></div>
+
+        <button class="btn" onclick="setMode('light')">
+            <svg viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="4"/>
+                <line x1="12" y1="2" x2="12" y2="5"/>
+                <line x1="12" y1="19" x2="12" y2="22"/>
+                <line x1="4.2" y1="4.2" x2="6.3" y2="6.3"/>
+                <line x1="17.7" y1="17.7" x2="19.8" y2="19.8"/>
+                <line x1="2" y1="12" x2="5" y2="12"/>
+                <line x1="19" y1="12" x2="22" y2="12"/>
+                <line x1="4.2" y1="19.8" x2="6.3" y2="17.7"/>
+                <line x1="17.7" y1="6.3" x2="19.8" y2="4.2"/>
+            </svg>
+        </button>
+
+        <button class="btn" onclick="setMode('dark')">
+            <svg viewBox="0 0 24 24" fill="none">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 
+                7 7 0 0 0 21 12.79z"/>
+            </svg>
+        </button>
+    </div>
+
+    <!-- CARD -->
+    <div class="card">
+        <h1>ASCII Machine</h1><br>
+
+        <div class="input-group">
+            <input id="input_ascii" type="text" maxlength="1" required>
+            <label>Digite um caractere</label>
+        </div>
+
+        <button onclick="converterCaracter()">Converter</button>
+
+        <div id="div_output"></div>
+    </div>
+
+</body>
+
+<script>
+    function converterCaracter() {
+        div_output.innerHTML = '';
+
+        var caractere = input_ascii.value;
+        if (caractere === '') {
+            div_output.innerHTML = "Digite um caractere!";
+            return;
+        }
+
+        var decimal = caractere.charCodeAt();
+
+        div_output.style.display = 'block';
+
+        div_output.innerHTML += "Octal : " + decimal.toString(8) + '<br>';
+        div_output.innerHTML += "Hexadecimal : " + decimal.toString(16) + '<br>';
+        div_output.innerHTML += "Binario : " + decimal.toString(2) + '<br>';
+    }
+
+    function setMode(mode) {
+        const body = document.body;
+        const switcher = document.getElementById("switch");
+
+        if (mode === "dark") {
+            switcher.classList.add("dark");
+            body.classList.remove("light");
+        } else {
+            switcher.classList.remove("dark");
+            body.classList.add("light");
+        }
+    }
+</script>
+
+</html>
