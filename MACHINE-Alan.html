@@ -38,38 +38,39 @@
 
     <!-- CARD -->
     <div class="card">
-        <h1>ASCII Machine</h1><br>
+        <h1>SPTecher's Machine</h1><br>
 
         <div class="input-group">
-            <input id="input_ascii" type="text" maxlength="1" required>
+            <input id="input_ascii" type="text" required>
             <label>Digite um caractere</label>
         </div>
 
-        <button onclick="converterCaracter()">Converter</button>
+        <button onclick="converter()">Converter</button>
 
         <div id="div_output"></div>
+
+        <h3>Resultados:</h3>
+        <p>Octal:
+        <div id="demo2"></div>
+        </p>
+        <p>Hexadecimal:
+        <div id="demo3"></div>
+        </p>
+        <p>Binário:
+        <div id="demo4"></div>
+        </p>
     </div>
 
 </body>
 
 <script>
-    function converterCaracter() {
-        div_output.innerHTML = '';
-
-        var caractere = input_ascii.value;
-        if (caractere === '') {
-            div_output.innerHTML = "Digite um caractere!";
-            return;
+    function converter() {
+            var decimal = Number(input_ascii.value);
+            div_output.style.display = 'block';
+            demo2.innerHTML = decimal.toString(8);
+            demo3.innerHTML = decimal.toString(16);
+            demo4.innerHTML = decimal.toString(2);
         }
-
-        var decimal = caractere.charCodeAt();
-
-        div_output.style.display = 'block';
-
-        div_output.innerHTML += "Octal : " + decimal.toString(8) + '<br>';
-        div_output.innerHTML += "Hexadecimal : " + decimal.toString(16) + '<br>';
-        div_output.innerHTML += "Binario : " + decimal.toString(2) + '<br>';
-    }
 
     function setMode(mode) {
         const body = document.body;
@@ -84,5 +85,4 @@
         }
     }
 </script>
-
 </html>
